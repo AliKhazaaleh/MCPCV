@@ -43,6 +43,17 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'date_of_birth' => 'date',
+            'last_visit' => 'datetime',
+            'registration_date' => 'datetime',
         ];
+    }
+
+    /**
+     * Get all CVs for the user.
+     */
+    public function cvs()
+    {
+        return $this->hasMany(CV::class);
     }
 }
